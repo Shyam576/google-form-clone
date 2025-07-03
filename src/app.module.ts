@@ -13,12 +13,14 @@ import { PostModule } from './modules/post/post.module.ts';
 import { UserModule } from './modules/user/user.module.ts';
 import { ApiConfigService } from './shared/services/api-config.service.ts';
 import { SharedModule } from './shared/shared.module.ts';
+import { TestModule } from './modules/test/test.module.ts';
 
 @Module({
   imports: [
     AuthModule,
     UserModule,
     PostModule,
+    TestModule,
     ClsModule.forRoot({
       global: true,
       middleware: {

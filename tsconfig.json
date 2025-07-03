@@ -45,7 +45,6 @@
 },
   "include": [
     "src/**/*",
-    ".hygen.cjs"
 ],
   "exclude": [
     "node_modules",
