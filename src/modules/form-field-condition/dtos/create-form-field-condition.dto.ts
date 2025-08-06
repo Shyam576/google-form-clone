@@ -1,4 +1,19 @@
+import { IsNotEmpty, IsString } from 'class-validator';
 
 export class CreateFormFieldConditionDto {
-  name!: string;
+  @IsString()
+  @IsNotEmpty()
+  targetFieldId!: string;
+
+  @IsString()
+  @IsNotEmpty()
+  dependsOnId!: string;
+
+  @IsString()
+  @IsNotEmpty()
+  operator!: string;
+
+  @IsString()
+  @IsNotEmpty()
+  value!: string;
 }

@@ -1,4 +1,18 @@
+import { IsNotEmpty, IsNumber, IsString } from 'class-validator';
 
 export class CreateFormSectionDto {
-  name!: string;
+  @IsString()
+  @IsNotEmpty()
+  formTemplateId!: string;
+
+  @IsString()
+  @IsNotEmpty()
+  title!: string;
+
+  @IsNumber()
+  order!: number;
+
+  @IsString()
+  @IsNotEmpty()
+  description!: string;
 }
