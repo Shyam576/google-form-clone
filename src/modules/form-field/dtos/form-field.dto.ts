@@ -19,8 +19,8 @@ export class FormFieldDto extends AbstractDto {
   @ApiProperty()
   isRequired!: boolean;
 
-  @ApiProperty()
-  options!: string;
+  @ApiProperty({type: [String]})
+  options!: string[];
 
   @ApiProperty()
   order!: number;

@@ -13,14 +13,14 @@ export class FormFieldEntity extends AbstractEntity<FormFieldDto> {
   @Column({ nullable: false })
   label!: string;
 
-  @Column({ nullable: false })
+  @Column({ nullable: false,enum: DataType })
   type!: string;
 
   @Column({ nullable: false })
   isRequired!: boolean;
 
-  @Column({ nullable: false, enum: DataType })
-  options!: string;
+  @Column({ nullable: false,  type: 'json'})
+  options!: string[];
 
   @Column({ nullable: false })
   order!: number;
