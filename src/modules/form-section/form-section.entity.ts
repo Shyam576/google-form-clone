@@ -4,7 +4,7 @@ import { AbstractEntity } from '../../common/abstract.entity.ts';
 import { UseDto } from '../../decorators/use-dto.decorator.ts';
 import { FormSectionDto} from './dtos/form-section.dto.ts'
 
-@Entity({ name: 'form-sections' })
+@Entity({ name: 'form_sections' })
 @UseDto(FormSectionDto)
 export class FormSectionEntity extends AbstractEntity<FormSectionDto> {
 

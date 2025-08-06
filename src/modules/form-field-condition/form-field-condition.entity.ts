@@ -4,7 +4,7 @@ import { AbstractEntity } from '../../common/abstract.entity.ts';
 import { UseDto } from '../../decorators/use-dto.decorator.ts';
 import { FormFieldConditionDto} from './dtos/form-field-condition.dto.ts'
 
-@Entity({ name: 'form-field-conditions' })
+@Entity({ name: 'form_field_condtions' })
 @UseDto(FormFieldConditionDto)
 export class FormFieldConditionEntity extends AbstractEntity<FormFieldConditionDto> {
 
@@ -12,7 +12,7 @@ export class FormFieldConditionEntity extends AbstractEntity<FormFieldConditionD
   targetFieldId!: string;
 
   @Column({nullable: false})
-  dependsOnId!: string;
+  dependsOnFieldId!: string;
 
   @Column({nullable: false})
   operator!:string;

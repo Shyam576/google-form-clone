@@ -4,7 +4,7 @@ import { UseDto } from '../../decorators/use-dto.decorator.ts';
 import { FormFieldDto } from './dtos/form-field.dto.ts';
 import { DataType } from '../../constants/data-type.ts';
 
-@Entity({ name: 'form-fields' })
+@Entity({ name: 'form_fields' })
 @UseDto(FormFieldDto)
 export class FormFieldEntity extends AbstractEntity<FormFieldDto> {
   @Column({ nullable: false })

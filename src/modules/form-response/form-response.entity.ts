@@ -5,7 +5,7 @@ import { UseDto } from '../../decorators/use-dto.decorator.ts';
 import { FormResponseDto} from './dtos/form-response.dto.ts'
 import { FormResponseStatus } from '../../constants/data-type copy.ts';
 
-@Entity({ name: 'form-responses' })
+@Entity({ name: 'form_responses' })
 @UseDto(FormResponseDto)
 export class FormResponseEntity extends AbstractEntity<FormResponseDto> {
 

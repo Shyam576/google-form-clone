@@ -9,7 +9,7 @@ export class FormFieldConditionDto extends AbstractDto {
   targetFieldId!: string;
 
   @ApiProperty()
-  dependsOnId!: string;
+  dependsOnFieldId!: string;
 
   @ApiProperty()
   operator!: string;

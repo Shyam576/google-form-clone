@@ -26,7 +26,7 @@ export class FormSectionController {
   constructor(private formSectionService: FormSectionService) {}
 
   @Post()
-  @Auth([])
+  // @Auth([])
   @HttpCode(HttpStatus.CREATED)
   async create(@Body() createFormSectionDto: CreateFormSectionDto) {
     const entity = await this.formSectionService.create(createFormSectionDto);

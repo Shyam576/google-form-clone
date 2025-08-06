@@ -11,7 +11,7 @@ import {
   Param,
   Query,
 } from '@nestjs/common';
-import { ApiTags } from '@nestjs/swagger';
+import { ApiResponse, ApiTags } from '@nestjs/swagger';
 import type { PageDto } from '../../common/dto/page.dto.ts';
 import { Auth } from '../../decorators/http.decorators';
 import { CreateFormTemplateDto } from './dtos/create-form-template.dto.ts';
@@ -26,7 +26,7 @@ export class FormTemplateController {
   constructor(private formTemplateService: FormTemplateService) {}
 
   @Post()
-  @Auth([])
+  @ApiResponse({type: CreateFormTemplateDto})
   @HttpCode(HttpStatus.CREATED)
   async create(@Body() createFormTemplateDto: CreateFormTemplateDto) {
     const entity = await this.formTemplateService.create(createFormTemplateDto);

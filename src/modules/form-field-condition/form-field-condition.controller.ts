@@ -26,7 +26,6 @@ export class FormFieldConditionController {
   constructor(private formFieldConditionService: FormFieldConditionService) {}
 
   @Post()
-  @Auth([])
   @HttpCode(HttpStatus.CREATED)
   async create(@Body() createFormFieldConditionDto: CreateFormFieldConditionDto) {
     const entity = await this.formFieldConditionService.create(createFormFieldConditionDto);

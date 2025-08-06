@@ -26,7 +26,7 @@ export class FormFieldController {
   constructor(private formFieldService: FormFieldService) {}
 
   @Post()
-  @Auth([])
+  // @Auth([])
   @HttpCode(HttpStatus.CREATED)
   async create(@Body() createFormFieldDto: CreateFormFieldDto) {
     const entity = await this.formFieldService.create(createFormFieldDto);

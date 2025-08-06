@@ -3,7 +3,7 @@ import { AbstractEntity } from '../../common/abstract.entity.ts';
 import { UseDto } from '../../decorators/use-dto.decorator.ts';
 import { FormResponseAnswerDto } from './dtos/form-response-answer.dto.ts';
 
-@Entity({ name: 'form-response-answers' })
+@Entity({ name: 'form_response_answers' })
 @UseDto(FormResponseAnswerDto)
 export class FormResponseAnswerEntity extends AbstractEntity<FormResponseAnswerDto> {
   @Column({ nullable: false })

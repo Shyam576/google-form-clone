@@ -26,7 +26,7 @@ export class FormResponseAnswerController {
   constructor(private formResponseAnswerService: FormResponseAnswerService) {}
 
   @Post()
-  @Auth([])
+  // @Auth([])
   @HttpCode(HttpStatus.CREATED)
   async create(@Body() createFormResponseAnswerDto: CreateFormResponseAnswerDto) {
     const entity = await this.formResponseAnswerService.create(createFormResponseAnswerDto);
