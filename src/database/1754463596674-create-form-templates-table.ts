@@ -26,7 +26,20 @@ export class CreateFormTemplatesTable1754463596674 implements MigrationInterface
                         name: 'is_active',
                         type: 'boolean',
                         default: true
-                    }
+                    },
+                    {
+                        name: 'created_at',
+                        type: 'timestamp',
+                        precision: 6,
+                        default: 'CURRENT_TIMESTAMP(6)'
+                    },
+                    {
+                        name: 'updated_at',
+                        type: 'timestamp',
+                        precision: 6,
+                        default: 'CURRENT_TIMESTAMP(6)'
+                    },
+                    
                 ],
             }),
             true
