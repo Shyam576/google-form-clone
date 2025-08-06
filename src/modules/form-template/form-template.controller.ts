@@ -11,7 +11,7 @@ import {
   Param,
   Query,
 } from '@nestjs/common';
-import { ApiResponse, ApiTags } from '@nestjs/swagger';
+import { ApiTags } from '@nestjs/swagger';
 import type { PageDto } from '../../common/dto/page.dto.ts';
 import { Auth } from '../../decorators/http.decorators';
 import { CreateFormTemplateDto } from './dtos/create-form-template.dto.ts';
@@ -26,7 +26,7 @@ export class FormTemplateController {
   constructor(private formTemplateService: FormTemplateService) {}
 
   @Post()
-  @ApiResponse({type: CreateFormTemplateDto})
+  @Auth([])
   @HttpCode(HttpStatus.CREATED)
   async create(@Body() createFormTemplateDto: CreateFormTemplateDto) {
     const entity = await this.formTemplateService.create(createFormTemplateDto);
@@ -46,6 +46,20 @@ export class FormTemplateController {
   async getSingle(@Param('id') id: string): Promise<FormTemplateDto> {
     const entity = await this.formTemplateService.getSingle(id as Uuid);
     return entity.toDto();
+  }
+
+  @Get(':id/complete')
+  // @Auth([])
+  @HttpCode(HttpStatus.OK)
+  async getCompleteForm(@Param('id') id: string) {
+    return this.formTemplateService.getCompleteForm(id as Uuid);
+  }
+
+  @Get(':id/responses')
+  // @Auth([])
+  @HttpCode(HttpStatus.OK)
+  async getFormResponses(@Param('id') id: string) {
+    return this.formTemplateService.getFormResponses(id as Uuid);
   }
 
   @Patch(':id')

@@ -26,7 +26,7 @@ export class FormResponseController {
   constructor(private formResponseService: FormResponseService) {}
 
   @Post()
-  // @Auth([])
+  @Auth([])
   @HttpCode(HttpStatus.CREATED)
   async create(@Body() createFormResponseDto: CreateFormResponseDto) {
     const entity = await this.formResponseService.create(createFormResponseDto);
@@ -46,6 +46,13 @@ export class FormResponseController {
   async getSingle(@Param('id') id: string): Promise<FormResponseDto> {
     const entity = await this.formResponseService.getSingle(id as Uuid);
     return entity.toDto();
+  }
+
+  @Get(':id/complete')
+  @Auth([])
+  @HttpCode(HttpStatus.OK)
+  async getCompleteResponse(@Param('id') id: string) {
+    return this.formResponseService.getCompleteResponse(id as Uuid);
   }
 
   @Patch(':id')

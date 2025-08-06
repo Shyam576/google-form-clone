@@ -31,6 +31,41 @@ export class FormResponseService {
     return entity;
   }
 
+  async getCompleteResponse(id: string) {
+    const formResponse = await this.repo.findOne({
+      where: { id: id as Uuid },
+      relations: {
+        formTemplate: {
+          sections: {
+            fields: {
+              conditions: true
+            }
+          }
+        },
+        answers: {
+          section: true,
+          field: true
+        }
+      },
+      order: {
+        formTemplate: {
+          sections: {
+            order: 'ASC',
+            fields: {
+              order: 'ASC'
+            }
+          }
+        }
+      }
+    });
+
+    if (!formResponse) {
+      throw new NotFoundException('Form response not found');
+    }
+
+    return formResponse;
+  }
+
   async update(id: string, updateDto: UpdateFormResponseDto): Promise<void> {
     await this.repo.update(id, updateDto);
   }

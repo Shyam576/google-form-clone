@@ -31,6 +31,63 @@ export class FormTemplateService {
     return entity;
   }
 
+  async getCompleteForm(id: string) {
+    const formTemplate = await this.repo.findOne({
+      where: { id: id as Uuid },
+      relations: {
+        sections: {
+          fields: {
+            conditions: true
+          }
+        }
+      },
+      order: {
+        sections: {
+          order: 'ASC',
+          fields: {
+            order: 'ASC'
+          }
+        }
+      }
+    });
+
+    if (!formTemplate) {
+      throw new NotFoundException('Form template not found');
+    }
+
+    return formTemplate;
+  }
+
+  async getFormResponses(id: string) {
+    const formTemplate = await this.repo.findOne({
+      where: { id: id as Uuid },
+      relations: {
+        sections: {
+          fields: true
+        }
+      }
+    });
+
+    if (!formTemplate) {
+      throw new NotFoundException('Form template not found');
+    }
+
+    // Get all responses for this form template
+    const responses = await this.repo.manager
+      .createQueryBuilder('FormResponseEntity', 'response')
+      .leftJoinAndSelect('response.answers', 'answers')
+      .leftJoinAndSelect('answers.field', 'field')
+      .leftJoinAndSelect('answers.section', 'section')
+      .where('response.formTemplateId = :formTemplateId', { formTemplateId: id })
+      .orderBy('response.submittedAt', 'DESC')
+      .getMany();
+
+    return {
+      formTemplate,
+      responses
+    };
+  }
+
   async update(id: string, updateDto: UpdateFormTemplateDto): Promise<void> {
     await this.repo.update(id, updateDto);
   }
