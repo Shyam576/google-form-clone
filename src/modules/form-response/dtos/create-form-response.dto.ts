@@ -1,6 +1,6 @@
 import { IsEnum, IsNotEmpty, IsString } from 'class-validator';
 import { FormResponseStatus } from '../../../constants/data-type copy.ts';
-import { ApiProperty } from '@nestjs/swagger';
+import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
 
 export class CreateFormResponseDto {
   @ApiProperty()
@@ -13,9 +13,8 @@ export class CreateFormResponseDto {
   @IsNotEmpty()
   userId!: string;
 
-  @ApiProperty()
-  @IsString()
-  @IsNotEmpty()
+  @ApiPropertyOptional()
+  // @IsString()
   submittedAt!: string;
 
   @ApiProperty()

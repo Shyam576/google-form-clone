@@ -34,14 +34,14 @@ export class FormResponseAnswerController {
   }
 
   @Get()
-  @Auth([])
+  // @Auth([])
   @HttpCode(HttpStatus.OK)
   getAll(@Query() pageOptionsFormResponseAnswerDto: PageOptionsFormResponseAnswerDto){
     return this.formResponseAnswerService.getAll(pageOptionsFormResponseAnswerDto);
   }
 
   @Get(':id')
-  @Auth([])
+  // @Auth([])
   @HttpCode(HttpStatus.OK)
   async getSingle(@Param('id') id: string): Promise<FormResponseAnswerDto> {
     const entity = await this.formResponseAnswerService.getSingle(id as Uuid);

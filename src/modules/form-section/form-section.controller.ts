@@ -34,14 +34,14 @@ export class FormSectionController {
   }
 
   @Get()
-  @Auth([])
+  // @Auth([])
   @HttpCode(HttpStatus.OK)
   getAll(@Query() pageOptionsFormSectionDto: PageOptionsFormSectionDto){
     return this.formSectionService.getAll(pageOptionsFormSectionDto);
   }
 
   @Get(':id')
-  @Auth([])
+  // @Auth([])
   @HttpCode(HttpStatus.OK)
   async getSingle(@Param('id') id: string): Promise<FormSectionDto> {
     const entity = await this.formSectionService.getSingle(id as Uuid);

@@ -26,7 +26,7 @@ export class FormTemplateController {
   constructor(private formTemplateService: FormTemplateService) {}
 
   @Post()
-  @Auth([])
+//   @Auth([])
   @HttpCode(HttpStatus.CREATED)
   async create(@Body() createFormTemplateDto: CreateFormTemplateDto) {
     const entity = await this.formTemplateService.create(createFormTemplateDto);
@@ -34,7 +34,7 @@ export class FormTemplateController {
   }
 
   @Get()
-  @Auth([])
+//   @Auth([])
   @HttpCode(HttpStatus.OK)
   getAll(@Query() pageOptionsFormTemplateDto: PageOptionsFormTemplateDto){
     return this.formTemplateService.getAll(pageOptionsFormTemplateDto);

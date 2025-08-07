@@ -34,14 +34,14 @@ export class FormFieldController {
   }
 
   @Get()
-  @Auth([])
+  // @Auth([])
   @HttpCode(HttpStatus.OK)
   getAll(@Query() pageOptionsFormFieldDto: PageOptionsFormFieldDto){
     return this.formFieldService.getAll(pageOptionsFormFieldDto);
   }
 
   @Get(':id')
-  @Auth([])
+  // @Auth([])
   @HttpCode(HttpStatus.OK)
   async getSingle(@Param('id') id: string): Promise<FormFieldDto> {
     const entity = await this.formFieldService.getSingle(id as Uuid);

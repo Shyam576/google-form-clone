@@ -26,6 +26,7 @@ export class FormFieldConditionController {
   constructor(private formFieldConditionService: FormFieldConditionService) {}
 
   @Post()
+  // @Auth([])
   @HttpCode(HttpStatus.CREATED)
   async create(@Body() createFormFieldConditionDto: CreateFormFieldConditionDto) {
     const entity = await this.formFieldConditionService.create(createFormFieldConditionDto);
@@ -33,14 +34,14 @@ export class FormFieldConditionController {
   }
 
   @Get()
-  @Auth([])
+  // @Auth([])
   @HttpCode(HttpStatus.OK)
   getAll(@Query() pageOptionsFormFieldConditionDto: PageOptionsFormFieldConditionDto){
     return this.formFieldConditionService.getAll(pageOptionsFormFieldConditionDto);
   }
 
   @Get(':id')
-  @Auth([])
+  // @Auth([])
   @HttpCode(HttpStatus.OK)
   async getSingle(@Param('id') id: string): Promise<FormFieldConditionDto> {
     const entity = await this.formFieldConditionService.getSingle(id as Uuid);
