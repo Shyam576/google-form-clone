@@ -1,7 +1,7 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { AbstractDto } from '../../../common/dto/abstract.dto.ts';
 import { FormResponseEntity } from '../form-response.entity.ts';
-import { FormResponseStatus } from '../../../constants/data-type copy.ts';
+import { FormResponseStatus } from '../../../constants/form-response-status.ts';
 
 export class FormResponseDto extends AbstractDto {
   @ApiProperty()

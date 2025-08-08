@@ -3,7 +3,7 @@ import { Column, Entity, ManyToOne, OneToMany, JoinColumn } from 'typeorm';
 import { AbstractEntity } from '../../common/abstract.entity.ts';
 import { UseDto } from '../../decorators/use-dto.decorator.ts';
 import { FormResponseDto} from './dtos/form-response.dto.ts';
-import { FormResponseStatus } from '../../constants/data-type copy.ts';
+import { FormResponseStatus } from '../../constants/form-response-status.ts';
 import { FormTemplateEntity } from '../form-template/form-template.entity.ts';
 import { FormResponseAnswerEntity } from '../form-response-answer/form-response-answer.entity.ts';
 import type { Relation } from 'typeorm';

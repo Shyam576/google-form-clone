@@ -1,5 +1,5 @@
 import { IsEnum, IsOptional, IsString } from 'class-validator';
-import { FormResponseStatus } from '../../../constants/data-type copy.ts';
+import { FormResponseStatus } from '../../../constants/form-response-status.ts';
 import { ApiProperty } from '@nestjs/swagger';
 
 export class UpdateFormResponseDto {
