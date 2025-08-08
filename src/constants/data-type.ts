@@ -4,5 +4,4 @@ export enum DataType {
   MULTISELECT = 'multiselect',
   FIlEUPLOAD = 'fileupload',
   DATE = 'date',
-  
 }

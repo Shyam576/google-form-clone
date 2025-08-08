@@ -8,6 +8,7 @@ import { FormTemplateEntity } from '../form-template/form-template.entity.ts';
 import { FormResponseAnswerEntity } from '../form-response-answer/form-response-answer.entity.ts';
 import type { Relation } from 'typeorm';
 
+
 @Entity({ name: 'form_responses' })
 @UseDto(FormResponseDto)
 export class FormResponseEntity extends AbstractEntity<FormResponseDto> {
@@ -30,4 +31,6 @@ export class FormResponseEntity extends AbstractEntity<FormResponseDto> {
 
   @OneToMany(() => FormResponseAnswerEntity, (answer) => answer.formResponse)
   answers?: Relation<FormResponseAnswerEntity>[];
+
+ 
 }

@@ -1,17 +1,16 @@
-
 import { Column, Entity, ManyToOne, OneToMany, JoinColumn } from 'typeorm';
 import { AbstractEntity } from '../../common/abstract.entity.ts';
 import { UseDto } from '../../decorators/use-dto.decorator.ts';
-import { FormSectionDto} from './dtos/form-section.dto.ts';
+import { FormSectionDto } from './dtos/form-section.dto.ts';
 import { FormTemplateEntity } from '../form-template/form-template.entity.ts';
 import { FormFieldEntity } from '../form-field/form-field.entity.ts';
 import type { Relation } from 'typeorm';
+import { FormRepetableGroupEntity } from '../../modules/form-repetable-group/form-repetable-group.entity.ts';
 
 @Entity({ name: 'form_sections' })
 @UseDto(FormSectionDto)
 export class FormSectionEntity extends AbstractEntity<FormSectionDto> {
-
-   @Column({ name: 'form_template_id', nullable: false })
+  @Column({ name: 'form_template_id', nullable: false })
   formTemplateId!: string;
 
   @Column({ nullable: false })
@@ -29,4 +28,10 @@ export class FormSectionEntity extends AbstractEntity<FormSectionDto> {
 
   @OneToMany(() => FormFieldEntity, (field) => field.section)
   fields?: Relation<FormFieldEntity>[];
+
+  @OneToMany(
+    () => FormRepetableGroupEntity,
+    (repetableGroup) => repetableGroup.section,
+  )
+  repetableGroup?: Relation<FormRepetableGroupEntity>[];
 }

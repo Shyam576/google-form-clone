@@ -20,6 +20,8 @@ import { FormFieldModule } from './modules/form-field/form-field.module.ts';
 import { FormFieldConditionModule } from './modules/form-field-condition/form-field-condition.module.ts';
 import { FormResponseModule } from './modules/form-response/form-response.module.ts';
 import { FormResponseAnswerModule } from './modules/form-response-answer/form-response-answer.module.ts';
+import { FormRepetableGroupEntity } from './modules/form-repetable-group/form-repetable-group.entity.ts';
+import { FormResponseRepetableGroupEntity } from './modules/form-response-repetable-group/form-response-repetable-group.entity.ts';
 
 @Module({
   imports: [
@@ -33,6 +35,8 @@ import { FormResponseAnswerModule } from './modules/form-response-answer/form-re
     FormFieldConditionModule,
     FormResponseModule,
     FormResponseAnswerModule,
+    FormRepetableGroupEntity,
+    FormResponseRepetableGroupEntity,
     ClsModule.forRoot({
       global: true,
       middleware: {
